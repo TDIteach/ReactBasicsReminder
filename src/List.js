@@ -1,21 +1,21 @@
-import React from 'react';
-import Person from './Person';
+import React from 'react'
+import Person from './Person'
 
-const List = ({people}) => {
+const List = (props) => {
+  const people = props.people
+  const setPeople = props.setPeople
   return (
     <>
-     
-        {
-        people.map((person)=>{
-          const {id,name,age,image}=person;
-         return <article className="person">
-          <Person id={id} elem={person}/>
+      {people.map((person) => {
+        const { id, name, age, image } = person
+        return (
+          <article className='person'>
+            <Person id={id} elem={person} data={people} setPeople={setPeople} />
           </article>
-        })
-        }
-      
+        )
+      })}
     </>
-  );
-};
+  )
+}
 
-export default List;
+export default List
